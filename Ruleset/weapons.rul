@@ -577,14 +577,17 @@ items:
     primeActionName: STR_LASER_RECHARGE
     primeActionMessage: STR_LASER_RECHARGE_MESSAGE
     clipSize: 12
+    isAmmoRechargeable: true
     scripts:
       newTurnItem: |
         var int temp;
+        var int clipsize;
         item.getFuseTimer temp;
         if gt temp 0;
           item.setFuseTimer -1;
           item.setFuseEnabled 0;
-          item.setAmmoQuantity 12;
+          item.getAmmoQuantityMax clipsize;
+          item.setAmmoQuantity clipsize;
           debug_log "Recharged Laser Pistol" item;
         end;
         return;
@@ -633,15 +636,18 @@ items:
     fuseType: 2
     primeActionName: STR_LASER_RECHARGE
     primeActionMessage: STR_LASER_RECHARGE_MESSAGE
-    clipSize: 19
+    clipSize: 18
+    isAmmoRechargeable: true
     scripts:
       newTurnItem: |
         var int temp;
+        var int clipsize;
         item.getFuseTimer temp;
         if gt temp 0;
           item.setFuseTimer -1;
           item.setFuseEnabled 0;
-          item.setAmmoQuantity 19;
+          item.getAmmoQuantityMax clipsize;
+          item.setAmmoQuantity clipsize;
           debug_log "Recharged Scatter Laser Rifle" item;
         end;
         return;
@@ -698,14 +704,17 @@ items:
     primeActionName: STR_LASER_RECHARGE
     primeActionMessage: STR_LASER_RECHARGE_MESSAGE
     clipSize: 6
+    isAmmoRechargeable: true
     scripts:
       newTurnItem: |
         var int temp;
+        var int clipsize;
         item.getFuseTimer temp;
         if gt temp 0;
           item.setFuseTimer -1;
           item.setFuseEnabled 0;
-          item.setAmmoQuantity 6;
+          item.getAmmoQuantityMax clipsize;
+          item.setAmmoQuantity clipsize;
           debug_log "Recharged Scatter Laser" item;
         end;
         return;
@@ -765,14 +774,17 @@ items:
     primeActionName: STR_LASER_RECHARGE
     primeActionMessage: STR_LASER_RECHARGE_MESSAGE
     clipSize: 5
+    isAmmoRechargeable: true
     scripts:
       newTurnItem: |
         var int temp;
+        var int clipsize;
         item.getFuseTimer temp;
         if gt temp 0;
           item.setFuseTimer -1;
           item.setFuseEnabled 0;
-          item.setAmmoQuantity 5;
+          item.getAmmoQuantityMax clipsize;
+          item.setAmmoQuantity clipsize;
           debug_log "Recharged Laser Sniper" item;
         end;
         return;
@@ -816,15 +828,18 @@ items:
     fuseType: 2
     primeActionName: STR_LASER_RECHARGE
     primeActionMessage: STR_LASER_RECHARGE_MESSAGE
-    clipSize: 21
+    clipSize: 20
+    isAmmoRechargeable: true
     scripts:
       newTurnItem: |
         var int temp;
+        var int clipsize;
         item.getFuseTimer temp;
         if gt temp 0;
           item.setFuseTimer -1;
           item.setFuseEnabled 0;
-          item.setAmmoQuantity 21;
+          item.getAmmoQuantityMax clipsize;
+          item.setAmmoQuantity clipsize;
           debug_log "Recharged Heavy Laser" item;
         end;
         return;
@@ -1688,12 +1703,9 @@ extraStrings:
         our soldiers are trained with these and everyone should be able to handle
         them equally well. Sack the ones who don't.
       STR_UFOPAEDIA_LASER_WEAPON_MECHANICS: Laser Weapons
-      STR_UFOPAEDIA_LASER_WEAPON_MECHANICS_TEXT: These laser based line of weapons
-        is superior in damage compared to their alien counterparts. However these
-        are early prototypes and the energy cells are volatile.{NEWLINE}{NEWLINE}IMPORTANT>{NEWLINE}Our
-        scientist have advised us to never empty a laser energy cell completely. If
-        the energy cell of a prototype laser weapon is emptied, the weapon itself
-        will implode in the hands of our soldiers.{NEWLINE}{NEWLINE}CHARGES>{NEWLINE}Although
+      STR_UFOPAEDIA_LASER_WEAPON_MECHANICS_TEXT: These laser based weapons
+        are superior in damage compared to their alien counterparts. However these
+        are early prototypes and the energy cells can require recharging during combat.{NEWLINE}{NEWLINE}CHARGES>{NEWLINE}Although
         our laser based line of weapons does not require ammunition, they still require
         recharging. After activation of the RECHARGE mechanism, the weapon glows blue
         and will be recharged on the beginning of your next turn.
